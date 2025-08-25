@@ -41,7 +41,7 @@
 
 % Starting the main content
 \section{Introduction}
-This document provides a concise summary of key electrical engineering concepts focused on electrical machines and RLC circuits. It covers electromotive force (EMF), radial speed, current flow, electromagnetic torque, and the resonance curve in series RLC circuits to aid in preparation.
+This document provides a concise summary of key electrical engineering concepts focused on electrical machines and RLC circuits. It covers electromotive force (EMF), radial speed, current flow, electromagnetic torque, the resonance curve, and impedance behavior in series and parallel RLC circuits to aid in preparation.
 
 \section{Electrical Machines}
 \subsection{Electromotive Force (EMF)}
@@ -176,6 +176,21 @@ This document provides a concise summary of key electrical engineering concepts 
         \]
         corresponding to a frequency of \(f = \frac{\omega}{2 \pi} \approx \SI{50.33}{\hertz}\). Plotting the current versus frequency would show a peak at this value.
     \item \textbf{Why It Matters}: The resonance curve helps engineers analyze and design circuits for specific frequencies, optimizing performance in applications like communication systems and power electronics.
+\end{itemize}
+
+\subsection{Impedance at Resonance in Series and Parallel RLC Circuits}
+\concept{Impedance at Resonance} varies depending on whether the RLC circuit is configured in series or parallel.
+\begin{itemize}
+    \item \textbf{Series RLC Circuit}: The impedance \(Z\) is minimal (equal to \(R\)) at resonance (\(\omega = \omega_0\)).
+        \begin{itemize}
+            \item \textbf{Explanation}: At resonance, the reactances of the inductor and capacitor cancel out, leaving only the resistance \(R\) as the impedance. This results in maximum current flow.
+        \end{itemize}
+    \item \textbf{Parallel RLC Circuit}: The impedance \(Z\) is maximal at resonance (\(\omega = \omega_0\)).
+        \begin{itemize}
+            \item \textbf{Explanation}: At resonance, the parallel combination leads to a high effective impedance because the currents through the inductor and capacitor cancel, minimizing the total current drawn from the source.
+        \end{itemize}
+    \item \textbf{Resonance Frequency}: For both configurations, \(\omega_0 = \frac{1}{\sqrt{L C}}\).
+    \item \textbf{Why It Matters}: Understanding impedance behavior at resonance is essential for designing circuits like filters, oscillators, and tuned amplifiers, where controlling current or voltage amplification is key.
 \end{itemize}
 
 \end{document}
