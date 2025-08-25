@@ -41,7 +41,7 @@
 
 % Starting the main content
 \section{Introduction}
-This document provides a concise summary of key electrical engineering concepts focused on electrical machines, including electromotive force (EMF), radial speed, and current flow, to aid in preparation.
+This document provides a concise summary of key electrical engineering concepts focused on electrical machines, including electromotive force (EMF), radial speed, current flow, and electromagnetic torque, to aid in preparation.
 
 \section{Electrical Machines}
 \subsection{Electromotive Force (EMF)}
@@ -78,11 +78,11 @@ This document provides a concise summary of key electrical engineering concepts 
         \[
         \omega = \frac{2 \pi \cdot 1200}{60} = 40\pi \approx \SI{125.66}{\radian\per\second}.
         \]
-    \item \textbf{Why It Matters}: Angular speed is used in EMF calculations to determine how fast the magnetic field changes, directly affecting voltage generation.
+    \item \textbf{Why It Matters}: Angular speed is used in EMF and torque calculations to determine how fast the magnetic field changes, affecting voltage and mechanical output.
 \end{itemize}
 
 \subsection{Current Flow in the Circuit}
-\concept{Current Flow} in a circuit (induit) of an electrical machine is determined by the difference between the EMF and the voltage across the circuit, accounting for the internal resistance.
+\concept{Current Flow} in a circuit (armature) of an electrical machine is determined by the difference between the EMF and the voltage across the circuit, accounting for the internal resistance.
 \[
 \formula{I = \frac{E - V}{R}}
 \]
@@ -100,6 +100,42 @@ This document provides a concise summary of key electrical engineering concepts 
         I = \frac{100 - 90}{2} = \SI{5}{\ampere}.
         \]
         The power consumed by the internal resistor is \(P = 5^2 \cdot 2 = \SI{50}{\watt}\).
+\end{itemize}
+
+\subsection{Electromagnetic Torque}
+\concept{Electromagnetic Torque} (\(C\)) is the rotational force produced in an electrical machine, such as a motor, due to the interaction of current and magnetic flux.
+\[
+\formula{C = \frac{E \cdot I}{\omega}}
+\]
+\begin{itemize}
+    \item \textbf{Parameters}:
+        \begin{itemize}
+            \item \(C\): Torque (\si{\newton\metre}).
+            \item \(E\): Induced EMF (\si{\volt}).
+            \item \(I\): Current in the circuit (\si{\ampere}).
+            \item \(\omega\): Angular speed (\si{\radian\per\second}).
+        \end{itemize}
+    \item \textbf{Alternative Formula}:
+        \[
+        \formula{C = \frac{p}{a} \cdot \frac{N \cdot \Phi \cdot I}{2 \pi}}
+        \]
+        \begin{itemize}
+            \item \(p\): Number of poles.
+            \item \(a\): Number of parallel paths.
+            \item \(N\): Number of conductors.
+            \item \(\Phi\): Magnetic flux per pole (\si{\weber}).
+            \item \(I\): Current (\si{\ampere}).
+        \end{itemize}
+    \item \textbf{Explanation}: Torque is the mechanical output of an electrical machine, resulting from the interaction of the EMF and current, divided by angular speed in the first formula. The alternative formula expresses torque in terms of the machine’s physical parameters, showing how the number of poles, conductors, flux, and current contribute to the rotational force. Both yield torque in \si{\newton\metre}.
+    \item \textbf{Example}: For a machine with \(E = \SI{100}{\volt}\), \(I = \SI{5}{\ampere}\), and \(\omega = \SI{125.66}{\radian\per\second}\) (from 1200 RPM), the torque is:
+        \[
+        C = \frac{100 \cdot 5}{125.66} \approx \SI{3.98}{\newton\metre}.
+        \]
+        Using the alternative formula, for \(p = 4\), \(a = 2\), \(N = 100\), \(\Phi = \SI{0.02}{\weber}\), and \(I = \SI{5}{\ampere}\):
+        \[
+        C = \frac{4}{2} \cdot \frac{100 \cdot 0.02 \cdot 5}{2 \pi} \approx \SI{3.18}{\newton\metre}.
+        \]
+        (Note: Discrepancies may arise due to simplifying assumptions; verify with specific machine constants.)
 \end{itemize}
 
 \end{document}
