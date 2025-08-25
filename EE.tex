@@ -41,7 +41,7 @@
 
 % Starting the main content
 \section{Introduction}
-This document provides a concise summary of key electrical engineering concepts and study notes to aid in preparation, with a focus on the electrical machines lesson. The following sections cover fundamental topics in electrical machines, including electromotive force (EMF), radial speed, and current flow, along with related areas.
+This document provides a concise summary of key electrical engineering concepts focused on electrical machines, including electromotive force (EMF), radial speed, and current flow, to aid in preparation.
 
 \section{Electrical Machines}
 \subsection{Electromotive Force (EMF)}
@@ -59,7 +59,7 @@ This document provides a concise summary of key electrical engineering concepts 
             \item \(n\): Rotational speed (\si{\radian\per\second}).
             \item \(a\): Number of parallel paths in the winding.
         \end{itemize}
-    \item \textbf{Explanation}: The EMF is proportional to the number of poles, conductors, magnetic flux, and rotational speed, divided by the parallel paths. This formula is key for understanding how generators produce voltage.
+    \item \textbf{Explanation}: The EMF is proportional to the number of poles, conductors, magnetic flux, and rotational speed, divided by the parallel paths. This is critical for understanding voltage generation in machines like generators.
     \item \textbf{Example}: A 4-pole generator with 100 conductors, a flux of \SI{0.02}{\weber}, speed of \SI{1200}{rpm}, and 2 parallel paths generates an EMF calculated by converting speed to radians per second (see below) and applying the formula.
 \end{itemize}
 
@@ -74,15 +74,15 @@ This document provides a concise summary of key electrical engineering concepts 
             \item \(\omega\): Angular speed (\si{\radian\per\second}).
             \item \(n\): Rotational speed in revolutions per minute (RPM).
         \end{itemize}
-    \item \textbf{Simple Explanation}: This formula converts rotational speed from RPM to radians per second. One revolution is \(2\pi\) radians, and there are 60 seconds in a minute. Dividing by 60 adjusts the speed to a per-second basis. For example, if a motor spins at 1200 RPM:
+    \item \textbf{Simple Explanation}: This formula converts rotational speed from RPM to radians per second. One revolution equals \(2\pi\) radians, and dividing by 60 adjusts for seconds in a minute. For example, at 1200 RPM:
         \[
         \omega = \frac{2 \pi \cdot 1200}{60} = 40\pi \approx \SI{125.66}{\radian\per\second}.
         \]
-    \item \textbf{Why It Matters}: Angular speed is used in calculations like EMF to determine how fast the magnetic field changes, affecting voltage generation.
+    \item \textbf{Why It Matters}: Angular speed is used in EMF calculations to determine how fast the magnetic field changes, directly affecting voltage generation.
 \end{itemize}
 
 \subsection{Current Flow in the Circuit}
-\concept{Current Flow} in a circuit (often referred to as the induit in electrical machines) is determined by the difference between the EMF and the voltage across the circuit, accounting for the internal resistance of the circuit.
+\concept{Current Flow} in a circuit (induit) of an electrical machine is determined by the difference between the EMF and the voltage across the circuit, accounting for the internal resistance.
 \[
 \formula{I = \frac{E - V}{R}}
 \]
@@ -94,55 +94,12 @@ This document provides a concise summary of key electrical engineering concepts 
             \item \(V\): Voltage across the circuit (\si{\volt}).
             \item \(R\): Internal resistance of the circuit (\si{\ohm}).
         \end{itemize}
-    \item \textbf{Explanation}: The current in the circuit is driven by the difference between the generated EMF and the voltage across the circuit (e.g., across a load or terminals). This difference is divided by the internal resistance \(R\), which controls the flow of current. The power consumed by the internal resistor is given by \(P = I^2 R\), where the current \(I\) results from the voltage drop across the resistor.
-    \item \textbf{Example}: If a generator produces an EMF of \SI{100}{\volt}, the voltage across the circuit is \SI{90}{\volt}, and the internal resistance is \SI{2}{\ohm}, the current is:
+    \item \textbf{Explanation}: The current is driven by the difference between the generated EMF and the circuit’s terminal voltage, divided by the internal resistance. The power consumed by the internal resistor is \(P = I^2 R\), where \(I\) results from the voltage drop across the resistor, controlling current flow.
+    \item \textbf{Example}: For an EMF of \SI{100}{\volt}, a circuit voltage of \SI{90}{\volt}, and an internal resistance of \SI{2}{\ohm}, the current is:
         \[
         I = \frac{100 - 90}{2} = \SI{5}{\ampere}.
         \]
         The power consumed by the internal resistor is \(P = 5^2 \cdot 2 = \SI{50}{\watt}\).
-\end{itemize}
-
-\section{Circuit Analysis}
-\subsection{Key Concepts}
-\begin{itemize}
-    \item \concept{Ohm's Law}: Describes the relationship between voltage, current, and resistance in a circuit.
-    \item \concept{Kirchhoff's Laws}: Rules for analyzing current and voltage in circuit nodes and loops.
-\end{itemize}
-
-\section{AC Circuits}
-\subsection{AC Fundamentals}
-\begin{itemize}
-    \item \concept{Alternating Current (AC)}: Involves sinusoidal signals with characteristics like amplitude, frequency, and phase.
-    \item \concept{Impedance}: Combines resistance and reactance in AC circuits, affecting current flow.
-\end{itemize}
-
-\section{Electromagnetism}
-\subsection{Core Principles}
-\begin{itemize}
-    \item \concept{Maxwell's Equations}: Govern electric and magnetic fields, essential for understanding electromagnetic devices.
-    \item \concept{Magnetic Flux}: The amount of magnetic field passing through a surface, critical for EMF generation.
-\end{itemize}
-
-\section{Power Systems}
-\subsection{Power Concepts}
-\begin{itemize}
-    \item \concept{DC Power}: Power in direct current circuits depends on voltage and current.
-    \item \concept{AC Power}: Involves the power factor, affecting efficient power delivery in AC systems.
-\end{itemize}
-
-\section{Study Notes}
-\begin{itemize}
-    \item Review \textbf{circuit analysis techniques}: Practice nodal and mesh analysis for complex circuits.
-    \item Focus on \textbf{AC circuits}: Understand phasor diagrams and impedance calculations.
-    \item Study \textbf{electrical machines}: Learn how EMF, current flow, and rotational speed impact generator and motor performance.
-    \item Use \textbf{consistent units}: Always use SI units (e.g., \si{\volt}, \si{\ampere}, \si{\weber}) for calculations.
-\end{itemize}
-
-\section{Resources}
-\begin{itemize}
-    \item \textbf{Textbooks}: \textit{Fundamentals of Electric Circuits} by Alexander and Sadiku.
-    \item \textbf{Online}: MIT OpenCourseWare for circuit analysis and electromagnetism lectures.
-    \item \textbf{Practice}: Solve problems from Schaum's Outline series or past exams.
 \end{itemize}
 
 \end{document}
