@@ -41,10 +41,10 @@
 
 % Starting the main content
 \section{Introduction}
-This document provides a concise summary of key electrical engineering concepts and study notes to aid in preparation. It starts with the electromotive force (EMF) and radial speed concepts, followed by organized sections for fundamental topics.
+This document provides a concise summary of key electrical engineering concepts and study notes to aid in preparation, with a focus on the electrical machines lesson. The following sections cover fundamental topics in electrical machines, including electromotive force (EMF), radial speed, and current flow, along with related areas.
 
-\section{Electromotive Force (EMF)}
-\subsection{EMF in Electrical Machines}
+\section{Electrical Machines}
+\subsection{Electromotive Force (EMF)}
 \concept{Electromotive Force (EMF)} is the voltage generated in a conductor moving through a magnetic field, such as in a generator or motor.
 \[
 \formula{E = \frac{p N \Phi n}{a}}
@@ -81,6 +81,27 @@ This document provides a concise summary of key electrical engineering concepts 
     \item \textbf{Why It Matters}: Angular speed is used in calculations like EMF to determine how fast the magnetic field changes, affecting voltage generation.
 \end{itemize}
 
+\subsection{Current Flow in the Circuit}
+\concept{Current Flow} in a circuit (often referred to as the induit in electrical machines) is determined by the difference between the EMF and the voltage across the circuit, accounting for the internal resistance of the circuit.
+\[
+\formula{I = \frac{E - V}{R}}
+\]
+\begin{itemize}
+    \item \textbf{Parameters}:
+        \begin{itemize}
+            \item \(I\): Current flowing through the circuit (\si{\ampere}).
+            \item \(E\): Electromotive force (EMF, \si{\volt}).
+            \item \(V\): Voltage across the circuit (\si{\volt}).
+            \item \(R\): Internal resistance of the circuit (\si{\ohm}).
+        \end{itemize}
+    \item \textbf{Explanation}: The current in the circuit is driven by the difference between the generated EMF and the voltage across the circuit (e.g., across a load or terminals). This difference is divided by the internal resistance \(R\), which controls the flow of current. The power consumed by the internal resistor is given by \(P = I^2 R\), where the current \(I\) results from the voltage drop across the resistor.
+    \item \textbf{Example}: If a generator produces an EMF of \SI{100}{\volt}, the voltage across the circuit is \SI{90}{\volt}, and the internal resistance is \SI{2}{\ohm}, the current is:
+        \[
+        I = \frac{100 - 90}{2} = \SI{5}{\ampere}.
+        \]
+        The power consumed by the internal resistor is \(P = 5^2 \cdot 2 = \SI{50}{\watt}\).
+\end{itemize}
+
 \section{Circuit Analysis}
 \subsection{Key Concepts}
 \begin{itemize}
@@ -113,7 +134,7 @@ This document provides a concise summary of key electrical engineering concepts 
 \begin{itemize}
     \item Review \textbf{circuit analysis techniques}: Practice nodal and mesh analysis for complex circuits.
     \item Focus on \textbf{AC circuits}: Understand phasor diagrams and impedance calculations.
-    \item Study \textbf{electrical machines}: Learn how EMF and rotational speed impact generator and motor performance.
+    \item Study \textbf{electrical machines}: Learn how EMF, current flow, and rotational speed impact generator and motor performance.
     \item Use \textbf{consistent units}: Always use SI units (e.g., \si{\volt}, \si{\ampere}, \si{\weber}) for calculations.
 \end{itemize}
 
