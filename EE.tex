@@ -14,7 +14,7 @@
 % Configuring the table of contents
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
-% Setting up fonts (using Computer Modern as default for PDFLaTeX compatibility)
+% Setting up fonts
 \usepackage{times} % Using Times for better readability
 \usepackage[T1]{fontenc}
 
@@ -41,89 +41,87 @@
 
 % Starting the main content
 \section{Introduction}
-This document provides a concise summary of key electrical engineering concepts, formulas, and study notes to aid in preparation. It is organized into sections covering fundamental topics, with clear explanations and examples.
+This document provides a concise summary of key electrical engineering concepts and study notes to aid in preparation. It starts with the electromotive force (EMF) and radial speed concepts, followed by organized sections for fundamental topics.
 
-\section{Circuit Analysis}
-\subsection{Ohm's Law}
-\concept{Ohm's Law} describes the relationship between voltage (\(V\)), current (\(I\)), and resistance (\(R\)) in a circuit.
+\section{Electromotive Force (EMF)}
+\subsection{EMF in Electrical Machines}
+\concept{Electromotive Force (EMF)} is the voltage generated in a conductor moving through a magnetic field, such as in a generator or motor.
 \[
-\formula{V = I \cdot R}
+\formula{E = \frac{p N \Phi n}{a}}
 \]
 \begin{itemize}
-    \item \textbf{Units}: Voltage (\si{\volt}), Current (\si{\ampere}), Resistance (\si{\ohm}).
-    \item \textbf{Example}: A circuit with a \SI{5}{\ohm} resistor and \SI{2}{\ampere} current has a voltage of \( V = 2 \cdot 5 = \SI{10}{\volt} \).
+    \item \textbf{Parameters}:
+        \begin{itemize}
+            \item \(E\): Induced EMF (\si{\volt}).
+            \item \(p\): Number of poles in the machine.
+            \item \(N\): Number of conductors.
+            \item \(\Phi\): Magnetic flux per pole (\si{\weber}).
+            \item \(n\): Rotational speed (\si{\radian\per\second}).
+            \item \(a\): Number of parallel paths in the winding.
+        \end{itemize}
+    \item \textbf{Explanation}: The EMF is proportional to the number of poles, conductors, magnetic flux, and rotational speed, divided by the parallel paths. This formula is key for understanding how generators produce voltage.
+    \item \textbf{Example}: A 4-pole generator with 100 conductors, a flux of \SI{0.02}{\weber}, speed of \SI{1200}{rpm}, and 2 parallel paths generates an EMF calculated by converting speed to radians per second (see below) and applying the formula.
 \end{itemize}
 
-\subsection{Kirchhoff's Laws}
-\concept{Kirchhoff's Current Law (KCL)}: The sum of currents entering a node equals the sum of currents leaving it.
+\subsection{Radial Speed}
+\concept{Radial Speed} (or angular speed, \(\omega\)) represents how fast a rotor spins in a rotating machine, measured in \si{\radian\per\second}.
 \[
-\formula{\sum I_{\text{in}} = \sum I_{\text{out}}}
+\formula{\omega = \frac{2 \pi n}{60}}
 \]
-\concept{Kirchhoff's Voltage Law (KVL)}: The sum of voltage drops around a closed loop is zero.
-\[
-\formula{\sum V = 0}
-\]
+\begin{itemize}
+    \item \textbf{Parameters}:
+        \begin{itemize}
+            \item \(\omega\): Angular speed (\si{\radian\per\second}).
+            \item \(n\): Rotational speed in revolutions per minute (RPM).
+        \end{itemize}
+    \item \textbf{Simple Explanation}: This formula converts rotational speed from RPM to radians per second. One revolution is \(2\pi\) radians, and there are 60 seconds in a minute. Dividing by 60 adjusts the speed to a per-second basis. For example, if a motor spins at 1200 RPM:
+        \[
+        \omega = \frac{2 \pi \cdot 1200}{60} = 40\pi \approx \SI{125.66}{\radian\per\second}.
+        \]
+    \item \textbf{Why It Matters}: Angular speed is used in calculations like EMF to determine how fast the magnetic field changes, affecting voltage generation.
+\end{itemize}
+
+\section{Circuit Analysis}
+\subsection{Key Concepts}
+\begin{itemize}
+    \item \concept{Ohm's Law}: Describes the relationship between voltage, current, and resistance in a circuit.
+    \item \concept{Kirchhoff's Laws}: Rules for analyzing current and voltage in circuit nodes and loops.
+\end{itemize}
 
 \section{AC Circuits}
 \subsection{AC Fundamentals}
-\concept{Alternating Current (AC)} involves sinusoidal signals characterized by amplitude, frequency, and phase.
-\[
-\formula{v(t) = V_m \sin(\omega t + \phi)}
-\]
 \begin{itemize}
-    \item \(V_m\): Peak voltage (\si{\volt}).
-    \item \(\omega\): Angular frequency (\si{\radian\per\second}).
-    \item \(\phi\): Phase angle (\si{\radian}).
-\end{itemize}
-
-\subsection{Impedance}
-\concept{Impedance (\(Z\))} combines resistance and reactance in AC circuits.
-\[
-\formula{Z = R + jX}
-\]
-\begin{itemize}
-    \item \(R\): Resistance (\si{\ohm}).
-    \item \(X\): Reactance (\si{\ohm}), where \(X_L = \omega L\) (inductive) and \(X_C = \frac{1}{\omega C}\) (capacitive).
+    \item \concept{Alternating Current (AC)}: Involves sinusoidal signals with characteristics like amplitude, frequency, and phase.
+    \item \concept{Impedance}: Combines resistance and reactance in AC circuits, affecting current flow.
 \end{itemize}
 
 \section{Electromagnetism}
-\subsection{Maxwell's Equations}
-\concept{Maxwell's Equations} govern electromagnetic fields. Key equations include:
-\[
-\formula{\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}} \quad (\text{Gauss's Law for Electricity})
-\]
-\[
-\formula{\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}} \quad (\text{Ampere-Maxwell Law})
-\]
+\subsection{Core Principles}
+\begin{itemize}
+    \item \concept{Maxwell's Equations}: Govern electric and magnetic fields, essential for understanding electromagnetic devices.
+    \item \concept{Magnetic Flux}: The amount of magnetic field passing through a surface, critical for EMF generation.
+\end{itemize}
 
 \section{Power Systems}
-\subsection{Power Calculations}
-\concept{Power} in DC circuits:
-\[
-\formula{P = V \cdot I}
-\]
-\concept{Power} in AC circuits (single-phase):
-\[
-\formula{P = V_{\text{rms}} \cdot I_{\text{rms}} \cdot \cos\phi}
-\]
+\subsection{Power Concepts}
 \begin{itemize}
-    \item \(\cos\phi\): Power factor.
-    \item \textbf{Example}: For \(V_{\text{rms}} = \SI{120}{\volt}\), \(I_{\text{rms}} = \SI{5}{\ampere}\), \(\cos\phi = 0.8\), power is \(P = 120 \cdot 5 \cdot 0.8 = \SI{480}{\watt}\).
+    \item \concept{DC Power}: Power in direct current circuits depends on voltage and current.
+    \item \concept{AC Power}: Involves the power factor, affecting efficient power delivery in AC systems.
 \end{itemize}
 
 \section{Study Notes}
 \begin{itemize}
-    \item Review \textbf{circuit analysis techniques}: Nodal analysis, mesh analysis, and Thevenin/Norton equivalents.
-    \item Practice \textbf{AC circuit problems}: Focus on phasor diagrams and complex impedance calculations.
-    \item Understand \textbf{transformer principles}: Turns ratio, efficiency, and applications.
-    \item Memorize \textbf{key formulas}: Ensure units are consistent (e.g., use SI units).
+    \item Review \textbf{circuit analysis techniques}: Practice nodal and mesh analysis for complex circuits.
+    \item Focus on \textbf{AC circuits}: Understand phasor diagrams and impedance calculations.
+    \item Study \textbf{electrical machines}: Learn how EMF and rotational speed impact generator and motor performance.
+    \item Use \textbf{consistent units}: Always use SI units (e.g., \si{\volt}, \si{\ampere}, \si{\weber}) for calculations.
 \end{itemize}
 
 \section{Resources}
 \begin{itemize}
-    \item Textbooks: \textit{Fundamentals of Electric Circuits} by Alexander and Sadiku.
-    \item Online: MIT OpenCourseWare for circuit analysis and electromagnetism.
-    \item Practice: Solve problems from past exams or Schaum's Outline series.
+    \item \textbf{Textbooks}: \textit{Fundamentals of Electric Circuits} by Alexander and Sadiku.
+    \item \textbf{Online}: MIT OpenCourseWare for circuit analysis and electromagnetism lectures.
+    \item \textbf{Practice}: Solve problems from Schaum's Outline series or past exams.
 \end{itemize}
 
 \end{document}
