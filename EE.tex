@@ -41,7 +41,7 @@
 
 % Starting the main content
 \section{Introduction}
-This document provides a concise summary of key electrical engineering concepts focused on electrical machines, including electromotive force (EMF), radial speed, current flow, electromagnetic torque, and the determination of motor or generator operation, to aid in preparation.
+This document provides a concise summary of key electrical engineering concepts focused on electrical machines and RLC circuits. It covers electromotive force (EMF), radial speed, current flow, electromagnetic torque, and the resonance curve in series RLC circuits to aid in preparation.
 
 \section{Electrical Machines}
 \subsection{Electromotive Force (EMF)}
@@ -153,6 +153,29 @@ This document provides a concise summary of key electrical engineering concepts 
             \item If \(E = \SI{90}{\volt}\) and \(V = \SI{100}{\volt}\), then \(E < V\), and \(I = \frac{90 - 100}{2} = \SI{-5}{\ampere}\). The negative current indicates motor operation, consuming power to produce mechanical work.
         \end{itemize}
     \item \textbf{Why It Matters}: Comparing \(E\) and \(V\) allows quick identification of the machine’s operating mode, critical for analyzing performance and efficiency in electrical systems.
+\end{itemize}
+
+\section{RLC Circuits}
+\subsection{Resonance Curve (\textit{la courbe de résonance})}
+\concept{Resonance Curve} (\textit{la courbe de résonance}) is a graph showing the variation of current intensity (or voltage across a circuit element) as a function of frequency (\(f\)) or angular frequency (\(\omega\)) in a series RLC circuit.
+\begin{itemize}
+    \item \textbf{Explanation}: In a series RLC circuit, consisting of a resistor (\(R\)), inductor (\(L\)), and capacitor (\(C\)), the resonance curve illustrates how the current or voltage across a component (e.g., resistor, inductor, or capacitor) changes with the input signal’s frequency. At the resonance frequency, the inductive and capacitive reactances cancel each other out, resulting in maximum current (or minimum impedance) in the circuit. The resonance frequency occurs when:
+        \[
+        \omega = \frac{1}{\sqrt{L C}},
+        \]
+        where \(\omega\) is the angular frequency (\si{\radian\per\second}), \(L\) is inductance (\si{\henry}), and \(C\) is capacitance (\si{\farad}). The curve peaks at this frequency, showing a sharp increase in current, and decreases on either side, forming a bell-shaped graph.
+    \item \textbf{Key Characteristics}:
+        \begin{itemize}
+            \item The peak current occurs at the resonance frequency, where the circuit’s impedance is purely resistive (\(Z = R\)).
+            \item The sharpness of the curve depends on the quality factor (\(Q\)), which is higher for lower resistance, indicating a narrower peak.
+            \item The resonance curve is critical for applications like tuning circuits in radios or filters in signal processing.
+        \end{itemize}
+    \item \textbf{Example}: In a series RLC circuit with \(R = \SI{10}{\ohm}\), \(L = \SI{0.1}{\henry}\), and \(C = \SI{100}{\micro\farad}\), the resonance angular frequency is:
+        \[
+        \omega = \frac{1}{\sqrt{0.1 \cdot 100 \cdot 10^{-6}}} \approx \SI{316.23}{\radian\per\second},
+        \]
+        corresponding to a frequency of \(f = \frac{\omega}{2 \pi} \approx \SI{50.33}{\hertz}\). Plotting the current versus frequency would show a peak at this value.
+    \item \textbf{Why It Matters}: The resonance curve helps engineers analyze and design circuits for specific frequencies, optimizing performance in applications like communication systems and power electronics.
 \end{itemize}
 
 \end{document}
