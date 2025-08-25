@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+
+% Setting up the page geometry
+\usepackage[margin=1in]{geometry}
+
+% Including essential packages for mathematical typesetting
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{siunitx} % For units and numerical formatting
+\usepackage{enumitem} % For customized lists
+\usepackage{booktabs} % For professional tables
+\usepackage{xcolor} % For colored text
+\usepackage{tocloft} % For table of contents customization
+
+% Configuring the table of contents
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+% Setting up fonts (using Computer Modern as default for PDFLaTeX compatibility)
+\usepackage{times} % Using Times for better readability
+\usepackage[T1]{fontenc}
+
+% Customizing section headers
+\usepackage{sectsty}
+\sectionfont{\large\bfseries}
+\subsectionfont{\normalsize\bfseries}
+
+% Defining custom commands for consistent formatting
+\newcommand{\concept}[1]{\textbf{#1}}
+\newcommand{\formula}[1]{\textit{Formula: }#1}
+
+\begin{document}
+
+% Creating the title page
+\title{Electrical Engineering Preparation Summary}
+\author{Your Name}
+\date{August 25, 2025}
+\maketitle
+
+% Adding table of contents
+\tableofcontents
+\newpage
+
+% Starting the main content
+\section{Introduction}
+This document provides a concise summary of key electrical engineering concepts, formulas, and study notes to aid in preparation. It is organized into sections covering fundamental topics, with clear explanations and examples.
+
+\section{Circuit Analysis}
+\subsection{Ohm's Law}
+\concept{Ohm's Law} describes the relationship between voltage (\(V\)), current (\(I\)), and resistance (\(R\)) in a circuit.
+\[
+\formula{V = I \cdot R}
+\]
+\begin{itemize}
+    \item \textbf{Units}: Voltage (\si{\volt}), Current (\si{\ampere}), Resistance (\si{\ohm}).
+    \item \textbf{Example}: A circuit with a \SI{5}{\ohm} resistor and \SI{2}{\ampere} current has a voltage of \( V = 2 \cdot 5 = \SI{10}{\volt} \).
+\end{itemize}
+
+\subsection{Kirchhoff's Laws}
+\concept{Kirchhoff's Current Law (KCL)}: The sum of currents entering a node equals the sum of currents leaving it.
+\[
+\formula{\sum I_{\text{in}} = \sum I_{\text{out}}}
+\]
+\concept{Kirchhoff's Voltage Law (KVL)}: The sum of voltage drops around a closed loop is zero.
+\[
+\formula{\sum V = 0}
+\]
+
+\section{AC Circuits}
+\subsection{AC Fundamentals}
+\concept{Alternating Current (AC)} involves sinusoidal signals characterized by amplitude, frequency, and phase.
+\[
+\formula{v(t) = V_m \sin(\omega t + \phi)}
+\]
+\begin{itemize}
+    \item \(V_m\): Peak voltage (\si{\volt}).
+    \item \(\omega\): Angular frequency (\si{\radian\per\second}).
+    \item \(\phi\): Phase angle (\si{\radian}).
+\end{itemize}
+
+\subsection{Impedance}
+\concept{Impedance (\(Z\))} combines resistance and reactance in AC circuits.
+\[
+\formula{Z = R + jX}
+\]
+\begin{itemize}
+    \item \(R\): Resistance (\si{\ohm}).
+    \item \(X\): Reactance (\si{\ohm}), where \(X_L = \omega L\) (inductive) and \(X_C = \frac{1}{\omega C}\) (capacitive).
+\end{itemize}
+
+\section{Electromagnetism}
+\subsection{Maxwell's Equations}
+\concept{Maxwell's Equations} govern electromagnetic fields. Key equations include:
+\[
+\formula{\nabla \cdot \mathbf{E} = \frac{\rho}{\epsilon_0}} \quad (\text{Gauss's Law for Electricity})
+\]
+\[
+\formula{\nabla \times \mathbf{B} = \mu_0 \mathbf{J} + \mu_0 \epsilon_0 \frac{\partial \mathbf{E}}{\partial t}} \quad (\text{Ampere-Maxwell Law})
+\]
+
+\section{Power Systems}
+\subsection{Power Calculations}
+\concept{Power} in DC circuits:
+\[
+\formula{P = V \cdot I}
+\]
+\concept{Power} in AC circuits (single-phase):
+\[
+\formula{P = V_{\text{rms}} \cdot I_{\text{rms}} \cdot \cos\phi}
+\]
+\begin{itemize}
+    \item \(\cos\phi\): Power factor.
+    \item \textbf{Example}: For \(V_{\text{rms}} = \SI{120}{\volt}\), \(I_{\text{rms}} = \SI{5}{\ampere}\), \(\cos\phi = 0.8\), power is \(P = 120 \cdot 5 \cdot 0.8 = \SI{480}{\watt}\).
+\end{itemize}
+
+\section{Study Notes}
+\begin{itemize}
+    \item Review \textbf{circuit analysis techniques}: Nodal analysis, mesh analysis, and Thevenin/Norton equivalents.
+    \item Practice \textbf{AC circuit problems}: Focus on phasor diagrams and complex impedance calculations.
+    \item Understand \textbf{transformer principles}: Turns ratio, efficiency, and applications.
+    \item Memorize \textbf{key formulas}: Ensure units are consistent (e.g., use SI units).
+\end{itemize}
+
+\section{Resources}
+\begin{itemize}
+    \item Textbooks: \textit{Fundamentals of Electric Circuits} by Alexander and Sadiku.
+    \item Online: MIT OpenCourseWare for circuit analysis and electromagnetism.
+    \item Practice: Solve problems from past exams or Schaum's Outline series.
+\end{itemize}
+
+\end{document}
