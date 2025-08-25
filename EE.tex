@@ -41,7 +41,7 @@
 
 % Starting the main content
 \section{Introduction}
-This document provides a concise summary of key electrical engineering concepts focused on electrical machines, including electromotive force (EMF), radial speed, current flow, and electromagnetic torque, to aid in preparation.
+This document provides a concise summary of key electrical engineering concepts focused on electrical machines, including electromotive force (EMF), radial speed, current flow, electromagnetic torque, and the determination of motor or generator operation, to aid in preparation.
 
 \section{Electrical Machines}
 \subsection{Electromotive Force (EMF)}
@@ -136,6 +136,23 @@ This document provides a concise summary of key electrical engineering concepts 
         C = \frac{4}{2} \cdot \frac{100 \cdot 0.02 \cdot 5}{2 \pi} \approx \SI{3.18}{\newton\metre}.
         \]
         (Note: Discrepancies may arise due to simplifying assumptions; verify with specific machine constants.)
+\end{itemize}
+
+\subsection{Determining Motor or Generator Operation}
+\concept{Motor vs. Generator Operation} can be determined by comparing the electromotive force (EMF) and the voltage across the armature (\(V\)) of the electrical machine.
+\begin{itemize}
+    \item \textbf{Explanation}: 
+        \begin{itemize}
+            \item \textbf{Generator Mode}: If the EMF (\(E\)) is greater than the armature voltage (\(V\)), i.e., \(E > V\), the machine is operating as a generator. This is because the machine generates a higher voltage than the terminal voltage, driving current outward to supply power to an external load.
+            \item \textbf{Motor Mode}: If the EMF (\(E\)) is less than the armature voltage (\(V\)), i.e., \(E < V\), the machine is operating as a motor. In this case, an external voltage source supplies a higher voltage, driving current through the armature to produce mechanical work.
+            \item The current flow formula \(I = \frac{E - V}{R}\) determines the direction and magnitude of the current. In generator mode (\(E > V\)), current flows out of the machine (positive \(I\)). In motor mode (\(E < V\)), current flows into the machine (negative \(I\)).
+        \end{itemize}
+    \item \textbf{Example}: For a machine with an internal resistance \(R = \SI{2}{\ohm}\):
+        \begin{itemize}
+            \item If \(E = \SI{100}{\volt}\) and \(V = \SI{90}{\volt}\), then \(E > V\), and \(I = \frac{100 - 90}{2} = \SI{5}{\ampere}\). The positive current indicates generator operation, supplying power.
+            \item If \(E = \SI{90}{\volt}\) and \(V = \SI{100}{\volt}\), then \(E < V\), and \(I = \frac{90 - 100}{2} = \SI{-5}{\ampere}\). The negative current indicates motor operation, consuming power to produce mechanical work.
+        \end{itemize}
+    \item \textbf{Why It Matters}: Comparing \(E\) and \(V\) allows quick identification of the machine’s operating mode, critical for analyzing performance and efficiency in electrical systems.
 \end{itemize}
 
 \end{document}
