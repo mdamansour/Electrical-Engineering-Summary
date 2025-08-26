@@ -41,7 +41,7 @@
 
 % Starting the main content
 \section{Introduction}
-This document provides a concise summary of key electrical engineering concepts focused on electrical machines and RLC circuits. It covers electromotive force (EMF), radial speed, current flow, electromagnetic torque, the resonance curve, and impedance behavior in series and parallel RLC circuits to aid in preparation.
+This document provides a concise summary of key electrical engineering concepts focused on electrical machines, RLC circuits, and three-phase circuits. It covers electromotive force (EMF), radial speed, current flow, electromagnetic torque, the resonance curve, impedance behavior in series and parallel RLC circuits, and current relationships in three-phase delta systems to aid in preparation.
 
 \section{Electrical Machines}
 \subsection{Electromotive Force (EMF)}
@@ -145,7 +145,7 @@ This document provides a concise summary of key electrical engineering concepts 
         \begin{itemize}
             \item \textbf{Generator Mode}: If the EMF (\(E\)) is greater than the armature voltage (\(V\)), i.e., \(E > V\), the machine is operating as a generator. This is because the machine generates a higher voltage than the terminal voltage, driving current outward to supply power to an external load.
             \item \textbf{Motor Mode}: If the EMF (\(E\)) is less than the armature voltage (\(V\)), i.e., \(E < V\), the machine is operating as a motor. In this case, an external voltage source supplies a higher voltage, driving current through the armature to produce mechanical work.
-            \item The current flow formula \(I = \frac{E - V}{R}\) determines the direction and magnitude of the current. In generator mode (\(E > V\)), current flows out of the machine (positive \(I\)). In motor mode (\(E < V\)), current flows into the machine (negative \(I\)).
+            \item The current flow formula \(I = \frac{E - V}{R}\) determines the direction and magnitude of the current. In generator mode (\(E > V\)), current flows out of the machine (positive \(I\)). In motor mode (\$E < V\$), current flows into the machine (negative \(I\)).
         \end{itemize}
     \item \textbf{Example}: For a machine with an internal resistance \(R = \SI{2}{\ohm}\):
         \begin{itemize}
@@ -159,9 +159,9 @@ This document provides a concise summary of key electrical engineering concepts 
 \subsection{Resonance Curve (\textit{la courbe de résonance})}
 \concept{Resonance Curve} (\textit{la courbe de résonance}) is a graph showing the variation of current intensity (or voltage across a circuit element) as a function of frequency (\(f\)) or angular frequency (\(\omega\)) in a series RLC circuit.
 \begin{itemize}
-    \item \textbf{Explanation}: In a series RLC circuit, consisting of a resistor (\(R\)), inductor (\(L\)), and capacitor (\(C\)), the resonance curve illustrates how the current or voltage across a component (e.g., resistor, inductor, or capacitor) changes with the input signal’s frequency. At the resonance frequency, the inductive and capacitive reactances cancel each other out, resulting in maximum current (or minimum impedance) in the circuit. The resonance frequency occurs when:
+    \item \textbf{Explanation}: In a series RLC circuit, consisting of a resistor (\(R\)), inductor (\(L\)), and capacitor (\$C\$), the resonance curve illustrates how the current or voltage across a component (e.g., resistor, inductor, or capacitor) changes with the input signal’s frequency. At the resonance frequency, the inductive and capacitive reactances cancel each other out, resulting in maximum current (or minimum impedance) in the circuit. The resonance frequency occurs when:
         \[
-        \omega = \frac{1}{\sqrt{L C}},
+        \formula{\omega = \frac{1}{\sqrt{L C}}},
         \]
         where \(\omega\) is the angular frequency (\si{\radian\per\second}), \(L\) is inductance (\si{\henry}), and \(C\) is capacitance (\si{\farad}). The curve peaks at this frequency, showing a sharp increase in current, and decreases on either side, forming a bell-shaped graph.
     \item \textbf{Key Characteristics}:
@@ -191,6 +191,51 @@ This document provides a concise summary of key electrical engineering concepts 
         \end{itemize}
     \item \textbf{Resonance Frequency}: For both configurations, \(\omega_0 = \frac{1}{\sqrt{L C}}\).
     \item \textbf{Why It Matters}: Understanding impedance behavior at resonance is essential for designing circuits like filters, oscillators, and tuned amplifiers, where controlling current or voltage amplification is key.
+\end{itemize}
+
+\section{Three-Phase Circuits}
+\subsection{Line Current in a Delta (Triangular) System}
+\concept{Line Current in a Delta System} relates the line current to the phase currents in a three-phase delta-connected system.
+\[
+\formula{I_1 = J_1 - J_3}
+\]
+\begin{itemize}
+    \item \textbf{Phase Relationship}:
+        \[
+        \formula{J_3 = J_1 \cdot e^{j \cdot \frac{2\pi}{3}} = J_1 \cdot e^{j \cdot \frac{-4\pi}{3}}}
+        \]
+    \item \textbf{Parameters}:
+        \begin{itemize}
+            \item \(I_1\): Line current for phase 1 (\si{\ampere}).
+            \item \(J_1\): Phase current in branch 1 of the delta (\si{\ampere}).
+            \item \(J_3\): Phase current in branch 3 of the delta (\si{\ampere}).
+        \end{itemize}
+    \item \textbf{Explanation}: In a delta (triangular) configuration, the line current \(I_1\) is the vector difference between the phase currents \(J_1\) and \(J_3\). The phase currents in a three-phase system are 120 degrees (\(\frac{2\pi}{3}\) radians) apart. The relationship \(J_3 = J_1 \cdot e^{j \cdot \frac{2\pi}{3}}\) indicates that \(J_3\) is phase-shifted from \(J_1\) by \(120^\circ\) counterclockwise, while \(J_3 = J_1 \cdot e^{j \cdot \frac{-4\pi}{3}}\) is equivalent, as \(\frac{-4\pi}{3} = \frac{2\pi}{3} - 2\pi\) (a full cycle shift). Using the vector difference:
+        \[
+        I_1 = J_1 - J_3 = J_1 - J_1 \cdot e^{j \cdot \frac{2\pi}{3}} = J_1 (1 - e^{j \cdot \frac{2\pi}{3}}).
+        \]
+        Simplifying, the magnitude of the line current is \(\sqrt{3}\) times the phase current, and it leads or lags by \(30^\circ\):
+        \[
+        |I_1| = \sqrt{3} |J_1|.
+        \]
+    \item \textbf{Example}: If the phase current \(J_1 = \SI{10}{\ampere} \angle 0^\circ\), then:
+        \[
+        J_3 = 10 \cdot e^{j \cdot \frac{2\pi}{3}} = 10 \angle 120^\circ.
+        \]
+        The line current is:
+        \[
+        I_1 = J_1 - J_3 = 10 \angle 0^\circ - 10 \angle 120^\circ.
+        \]
+        Using phasor arithmetic:
+        \[
+        I_1 = 10 - 10 \left(-\frac{1}{2} + j \frac{\sqrt{3}}{2}\right) = 10 + 5 - j 5\sqrt{3} = 15 - j 5\sqrt{3}.
+        \]
+        The magnitude is:
+        \[
+        |I_1| = \sqrt{15^2 + (5\sqrt{3})^2} = \sqrt{225 + 75} = \sqrt{300} \approx \SI{17.32}{\ampere},
+        \]
+        confirming \(|I_1| = \sqrt{3} \cdot 10 \approx \SI{17.32}{\ampere}\), with a phase angle of approximately \(30^\circ\) leading.
+    \item \textbf{Why It Matters}: Understanding the relationship between line and phase currents in a delta system is crucial for designing and analyzing three-phase power systems, ensuring proper load balancing and efficient power distribution.
 \end{itemize}
 
 \end{document}
