@@ -1,48 +1,42 @@
 \documentclass[12pt]{article}
-
 % Setting up the page geometry
 \usepackage[margin=1in]{geometry}
-
 % Including essential packages for mathematical typesetting
 \usepackage{amsmath, amssymb, amsfonts}
 \usepackage{siunitx} % For units and numerical formatting
+\DeclareSIUnit{\voltampere}{VA}
+\DeclareSIUnit{\voltampereactive}{VAR}
 \usepackage{enumitem} % For customized lists
 \usepackage{booktabs} % For professional tables
 \usepackage{xcolor} % For colored text
 \usepackage{tocloft} % For table of contents customization
-
 % Configuring the table of contents
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-
 % Setting up fonts
 \usepackage{times} % Using Times for better readability
 \usepackage[T1]{fontenc}
-
+% Suppressing underbar and underline warnings
+\let\underbar\relax
+\let\underline\relax
 % Customizing section headers
 \usepackage{sectsty}
 \sectionfont{\large\bfseries}
 \subsectionfont{\normalsize\bfseries}
-
 % Defining custom commands for consistent formatting
 \newcommand{\concept}[1]{\textbf{#1}}
 \newcommand{\formula}[1]{\textit{Formula: }#1}
-
 \begin{document}
-
 % Creating the title page
 \title{Electrical Engineering Preparation Summary}
 \author{Your Name}
 \date{August 25, 2025}
 \maketitle
-
 % Adding table of contents
 \tableofcontents
 \newpage
-
 % Starting the main content
 \section{Introduction}
-This document provides a concise summary of key electrical engineering concepts focused on electrical machines, RLC circuits, three-phase circuits, and additional notes on lamps. It covers electromotive force (EMF), radial speed, current flow, electromagnetic torque, the resonance curve, impedance behavior in series and parallel RLC circuits, current relationships in three-phase delta systems, and characteristics of incandescent and fluorescent lamps to aid in preparation.
-
+This document provides a concise summary of key electrical engineering concepts focused on electrical machines, RLC circuits, three-phase circuits, and additional notes on lamps. It covers electromotive force (EMF), angular speed, current flow, electromagnetic torque, the resonance curve, impedance behavior in series and parallel RLC circuits, current relationships, power calculations, and power factor correction in three-phase systems, as well as characteristics of incandescent and fluorescent lamps to aid in preparation.
 \section{Electrical Machines}
 \subsection{Electromotive Force (EMF)}
 \concept{Electromotive Force (EMF)} is the voltage generated in a conductor moving through a magnetic field, such as in a generator or motor.
@@ -55,16 +49,15 @@ This document provides a concise summary of key electrical engineering concepts 
             \item \(E\): Induced EMF (\si{\volt}).
             \item \(p\): Number of poles in the machine.
             \item \(N\): Number of conductors.
-            \item \(\Phi\): Magnetic flux ingu per pole (\si{\weber}).
+            \item \(\Phi\): Magnetic flux per pole (\si{\weber}).
             \item \(n\): Rotational speed (\si{\radian\per\second}).
             \item \(a\): Number of parallel paths in the winding.
         \end{itemize}
     \item \textbf{Explanation}: The EMF is proportional to the number of poles, conductors, magnetic flux, and rotational speed, divided by the parallel paths. This is critical for understanding voltage generation in machines like generators.
     \item \textbf{Example}: A 4-pole generator with 100 conductors, a flux of \SI{0.02}{\weber}, speed of \SI{1200}{rpm}, and 2 parallel paths generates an EMF calculated by converting speed to radians per second (see below) and applying the formula.
 \end{itemize}
-
-\subsection{Radial Speed}
-\concept{Radial Speed} (or angular speed, \(\omega\)) represents how fast a rotor spins in a rotating machine, measured in \si{\radian\per\second}.
+\subsection{Angular Speed}
+\concept{Angular Speed} (\(\omega\)) represents how fast a rotor spins in a rotating machine, measured in \si{\radian\per\second}.
 \[
 \formula{\omega = \frac{2 \pi n}{60}}
 \]
@@ -80,7 +73,6 @@ This document provides a concise summary of key electrical engineering concepts 
         \]
     \item \textbf{Why It Matters}: Angular speed is used in EMF and torque calculations to determine how fast the magnetic field changes, affecting voltage and mechanical output.
 \end{itemize}
-
 \subsection{Current Flow in the Circuit}
 \concept{Current Flow} in a circuit (armature) of an electrical machine is determined by the difference between the EMF and the voltage across the circuit, accounting for the internal resistance.
 \[
@@ -101,7 +93,6 @@ This document provides a concise summary of key electrical engineering concepts 
         \]
         The power consumed by the internal resistor is \(P = 5^2 \cdot 2 = \SI{50}{\watt}\).
 \end{itemize}
-
 \subsection{Electromagnetic Torque}
 \concept{Electromagnetic Torque} (\(C\)) is the rotational force produced in an electrical machine, such as a motor, due to the interaction of current and magnetic flux.
 \[
@@ -135,13 +126,12 @@ This document provides a concise summary of key electrical engineering concepts 
         \[
         C = \frac{4}{2} \cdot \frac{100 \cdot 0.02 \cdot 5}{2 \pi} \approx \SI{3.18}{\newton\metre}.
         \]
-        (Note: Discrepancies may arise due to simplifying assumptions; verify with specific machine constants.)
+        \item \textbf{Note}: Discrepancies between the two torque formulas may occur due to machine-specific constants (e.g., flux linkage or efficiency factors). Verify with manufacturer data for precise calculations.
 \end{itemize}
-
 \subsection{Determining Motor or Generator Operation}
 \concept{Motor vs. Generator Operation} can be determined by comparing the electromotive force (EMF) and the voltage across the armature (\(V\)) of the electrical machine.
 \begin{itemize}
-    \item \textbf{Explanation}: 
+    \item \textbf{Explanation}:
         \begin{itemize}
             \item \textbf{Generator Mode}: If the EMF (\(E\)) is greater than the armature voltage (\(V\)), i.e., \(E > V\), the machine is operating as a generator. This is because the machine generates a higher voltage than the terminal voltage, driving current outward to supply power to an external load.
             \item \textbf{Motor Mode}: If the EMF (\(E\)) is less than the armature voltage (\(V\)), i.e., \(E < V\), the machine is operating as a motor. In this case, an external voltage source supplies a higher voltage, driving current through the armature to produce mechanical work.
@@ -154,7 +144,6 @@ This document provides a concise summary of key electrical engineering concepts 
         \end{itemize}
     \item \textbf{Why It Matters}: Comparing \(E\) and \(V\) allows quick identification of the machine’s operating mode, critical for analyzing performance and efficiency in electrical systems.
 \end{itemize}
-
 \section{RLC Circuits}
 \subsection{Resonance Curve (\textit{la courbe de résonance})}
 \concept{Resonance Curve} (\textit{la courbe de résonance}) is a graph showing the variation of current intensity (or voltage across a circuit element) as a function of frequency (\(f\)) or angular frequency (\(\omega\)) in a series RLC circuit.
@@ -177,7 +166,6 @@ This document provides a concise summary of key electrical engineering concepts 
         corresponding to a frequency of \(f = \frac{\omega}{2 \pi} \approx \SI{50.33}{\hertz}\). Plotting the current versus frequency would show a peak at this value.
     \item \textbf{Why It Matters}: The resonance curve helps engineers analyze and design circuits for specific frequencies, optimizing performance in applications like communication systems and power electronics.
 \end{itemize}
-
 \subsection{Impedance at Resonance in Series and Parallel RLC Circuits}
 \concept{Impedance at Resonance} varies depending on whether the RLC circuit is configured in series or parallel.
 \begin{itemize}
@@ -187,12 +175,11 @@ This document provides a concise summary of key electrical engineering concepts 
         \end{itemize}
     \item \textbf{Parallel RLC Circuit}: The impedance \(Z\) is maximal at resonance (\(\omega = \omega_0\)).
         \begin{itemize}
-            \item \textbf{Explanation}: At resonance, the parallel combination leads to a high effective impedance because the currents through the inductor and capacitor cancel, minimizing the total current drawn from the source.
+            \item \textbf{Explanation}: At resonance, the parallel combination results in high impedance, as inductor and capacitor currents cancel, minimizing total current from the source.
         \end{itemize}
     \item \textbf{Resonance Frequency}: For both configurations, \(\omega_0 = \frac{1}{\sqrt{L C}}\).
     \item \textbf{Why It Matters}: Understanding impedance behavior at resonance is essential for designing circuits like filters, oscillators, and tuned amplifiers, where controlling current or voltage amplification is key.
 \end{itemize}
-
 \section{Three-Phase Circuits}
 \subsection{Line Current in a Delta (Triangular) System}
 \concept{Line Current in a Delta System} relates the line current to the phase currents in a three-phase delta-connected system.
@@ -237,7 +224,68 @@ This document provides a concise summary of key electrical engineering concepts 
         confirming \(|I_1| = \sqrt{3} \cdot 10 \approx \SI{17.32}{\ampere}\), with a phase angle of approximately \(30^\circ\) leading.
     \item \textbf{Why It Matters}: Understanding the relationship between line and phase currents in a delta system is crucial for designing and analyzing three-phase power systems, ensuring proper load balancing and efficient power distribution.
 \end{itemize}
-
+\subsection{Power in Three-Phase Systems}
+\concept{Power in Three-Phase Systems} includes active, reactive, and apparent power, defined as:
+\[
+\formula{P = \sqrt{3} V_L I_L \cos \phi, \quad Q = \sqrt{3} V_L I_L \sin \phi, \quad S = \sqrt{3} V_L I_L},
+\]
+where \(P\) is active power (\si{\watt}), \(Q\) is reactive power (\si{\voltampereactive}), \(S\) is apparent power (\si{\voltampere}), \(V_L\) is line voltage (\si{\volt}), \(I_L\) is line current (\si{\ampere}), and \(\cos \phi\) is the power factor. Active power depends on \(\cos \phi\), reactive power on \(\sin \phi\), and apparent power has no trigonometric term.
+\subsection{Power Factor Correction in Three-Phase Systems}
+\concept{Power Factor Correction} involves adding capacitors to reduce reactive power and improve the power factor in three-phase systems.
+\begin{itemize}
+    \item \textbf{Initial Reactive Power}:
+        \[
+        \formula{Q_1 = P \cdot \tan \phi_1}
+        \]
+        where \(Q_1\) is the initial reactive power (\si{\voltampereactive}), \(P\) is the active power (\si{\watt}), and \(\phi_1\) is the initial power factor angle.
+    \item \textbf{Desired Final Reactive Power}:
+        \[
+        \formula{Q_2 = P \cdot \tan \phi_2}
+        \]
+        where \(Q_2\) is the desired reactive power (\si{\voltampereactive}) after correction, and \(\phi_2\) is the desired power factor angle.
+    \item \textbf{Reactive Power to be Compensated by Capacitors}:
+        \[
+        \formula{Q_c = Q_1 - Q_2 = P (\tan \phi_1 - \tan \phi_2)}
+        \]
+        where \(Q_c\) is the reactive power provided by capacitors (\si{\voltampereactive}).
+    \item \textbf{Origin of \(Q_c\)}: The reactive power \(Q_c\) represents the amount of reactive power that capacitors must supply to reduce the initial reactive power \(Q_1\) to the desired level \(Q_2\), thereby improving the power factor from \(\cos \phi_1\) to \(\cos \phi_2\). This is necessary because inductive loads (e.g., motors) consume reactive power, leading to a low power factor. Capacitors provide capacitive reactive power (opposite in sign to inductive reactive power), reducing the net reactive power demand on the system and improving efficiency.
+    \item \textbf{Capacitor Sizing for Three-Phase Systems}:
+        \begin{itemize}
+            \item \textbf{Star (Y) Connection}:
+                \[
+                \formula{Q_c = 3 \cdot U^2 \cdot \omega \cdot C}
+                \]
+                where \(Q_c\) is the reactive power (\si{\voltampereactive}), \(U\) is the phase-to-neutral voltage (\si{\volt}), \(\omega = 2 \pi f\) is the angular frequency (\si{\radian\per\second}), \(f\) is the frequency (\si{\hertz}), and \(C\) is the capacitance per phase (\si{\farad}). The capacitance is:
+                \[
+                \formula{C = \frac{Q_c}{3 \cdot U^2 \cdot \omega}}
+                \]
+            \item \textbf{Delta (\(\Delta\)) Connection}:
+                \[
+                \formula{Q_c = 3 \cdot U^2 \cdot \omega \cdot C}
+                \]
+                where \(U\) is the line-to-line voltage (\si{\volt}). The capacitance is:
+                \[
+                \formula{C = \frac{Q_c}{3 \cdot U^2 \cdot \omega}}
+                \]
+            \item \textbf{Clarification}: The formula for \(Q_c\) is the same for both star and delta connections, but the voltage \(U\) differs. In a star connection, \(U\) is the phase-to-neutral voltage (\(V_L / \sqrt{3}\)), while in a delta connection, \(U\) is the line-to-line voltage (\(V_L\)). This affects the capacitance value required for the same \(Q_c\).
+        \end{itemize}
+    \item \textbf{Example}: For a three-phase system with active power \(P = \SI{100}{\kilo\watt}\), initial power factor \(\cos \phi_1 = 0.8\) (\(\tan \phi_1 = 0.75\)), desired power factor \(\cos \phi_2 = 0.95\) (\(\tan \phi_2 = 0.3287\)), line voltage \(V_L = \SI{400}{\volt}\), and frequency \(f = \SI{50}{\hertz}\):
+        \[
+        Q_1 = 100 \cdot 0.75 = \SI{75}{\kilo\voltampereactive}, \quad Q_2 = 100 \cdot 0.3287 = \SI{32.87}{\kilo\voltampereactive},
+        \]
+        \[
+        Q_c = 75 - 32.87 = \SI{42.13}{\kilo\voltampereactive}.
+        \]
+        For a star connection, \(U = \frac{400}{\sqrt{3}} \approx \SI{230.94}{\volt}\), \(\omega = 2 \pi \cdot 50 \approx \SI{314.16}{\radian\per\second}\):
+        \[
+        C = \frac{42.13 \cdot 10^3}{3 \cdot 230.94^2 \cdot 314.16} \approx \SI{879.6}{\micro\farad} \text{ per phase}.
+        \]
+        For a delta connection, \(U = \SI{400}{\volt}\):
+        \[
+        C = \frac{42.13 \cdot 10^3}{3 \cdot 400^2 \cdot 314.16} \approx \SI{279.2}{\micro\farad} \text{ per phase}.
+        \]
+    \item \textbf{Why It Matters}: Power factor correction reduces reactive power demand, lowers energy losses, and improves system efficiency, particularly in three-phase systems with inductive loads like motors.
+\end{itemize}
 \section{Additional Notes}
 \subsection{Lamps}
 \concept{Lamps} are common electrical loads with distinct electrical characteristics depending on their type.
@@ -255,5 +303,4 @@ This document provides a concise summary of key electrical engineering concepts 
             \item \textbf{Why It Matters}: The inductive nature requires consideration of reactive power and power factor correction in circuit design to improve efficiency.
         \end{itemize}
 \end{itemize}
-
 \end{document}
