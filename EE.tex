@@ -41,7 +41,7 @@
 
 % Starting the main content
 \section{Introduction}
-This document provides a concise summary of key electrical engineering concepts focused on electrical machines, RLC circuits, and three-phase circuits. It covers electromotive force (EMF), radial speed, current flow, electromagnetic torque, the resonance curve, impedance behavior in series and parallel RLC circuits, and current relationships in three-phase delta systems to aid in preparation.
+This document provides a concise summary of key electrical engineering concepts focused on electrical machines, RLC circuits, three-phase circuits, and additional notes on lamps. It covers electromotive force (EMF), radial speed, current flow, electromagnetic torque, the resonance curve, impedance behavior in series and parallel RLC circuits, current relationships in three-phase delta systems, and characteristics of incandescent and fluorescent lamps to aid in preparation.
 
 \section{Electrical Machines}
 \subsection{Electromotive Force (EMF)}
@@ -55,7 +55,7 @@ This document provides a concise summary of key electrical engineering concepts 
             \item \(E\): Induced EMF (\si{\volt}).
             \item \(p\): Number of poles in the machine.
             \item \(N\): Number of conductors.
-            \item \(\Phi\): Magnetic flux per pole (\si{\weber}).
+            \item \(\Phi\): Magnetic flux ingu per pole (\si{\weber}).
             \item \(n\): Rotational speed (\si{\radian\per\second}).
             \item \(a\): Number of parallel paths in the winding.
         \end{itemize}
@@ -145,7 +145,7 @@ This document provides a concise summary of key electrical engineering concepts 
         \begin{itemize}
             \item \textbf{Generator Mode}: If the EMF (\(E\)) is greater than the armature voltage (\(V\)), i.e., \(E > V\), the machine is operating as a generator. This is because the machine generates a higher voltage than the terminal voltage, driving current outward to supply power to an external load.
             \item \textbf{Motor Mode}: If the EMF (\(E\)) is less than the armature voltage (\(V\)), i.e., \(E < V\), the machine is operating as a motor. In this case, an external voltage source supplies a higher voltage, driving current through the armature to produce mechanical work.
-            \item The current flow formula \(I = \frac{E - V}{R}\) determines the direction and magnitude of the current. In generator mode (\(E > V\)), current flows out of the machine (positive \(I\)). In motor mode (\$E < V\$), current flows into the machine (negative \(I\)).
+            \item The current flow formula \(I = \frac{E - V}{R}\) determines the direction and magnitude of the current. In generator mode (\(E > V\)), current flows out of the machine (positive \(I\)). In motor mode (\(E < V\)), current flows into the machine (negative \(I\)).
         \end{itemize}
     \item \textbf{Example}: For a machine with an internal resistance \(R = \SI{2}{\ohm}\):
         \begin{itemize}
@@ -159,7 +159,7 @@ This document provides a concise summary of key electrical engineering concepts 
 \subsection{Resonance Curve (\textit{la courbe de résonance})}
 \concept{Resonance Curve} (\textit{la courbe de résonance}) is a graph showing the variation of current intensity (or voltage across a circuit element) as a function of frequency (\(f\)) or angular frequency (\(\omega\)) in a series RLC circuit.
 \begin{itemize}
-    \item \textbf{Explanation}: In a series RLC circuit, consisting of a resistor (\(R\)), inductor (\(L\)), and capacitor (\$C\$), the resonance curve illustrates how the current or voltage across a component (e.g., resistor, inductor, or capacitor) changes with the input signal’s frequency. At the resonance frequency, the inductive and capacitive reactances cancel each other out, resulting in maximum current (or minimum impedance) in the circuit. The resonance frequency occurs when:
+    \item \textbf{Explanation}: In a series RLC circuit, consisting of a resistor (\(R\)), inductor (\(L\)), and capacitor (\(C\)), the resonance curve illustrates how the current or voltage across a component (e.g., resistor, inductor, or capacitor) changes with the input signal’s frequency. At the resonance frequency, the inductive and capacitive reactances cancel each other out, resulting in maximum current (or minimum impedance) in the circuit. The resonance frequency occurs when:
         \[
         \formula{\omega = \frac{1}{\sqrt{L C}}},
         \]
@@ -236,6 +236,24 @@ This document provides a concise summary of key electrical engineering concepts 
         \]
         confirming \(|I_1| = \sqrt{3} \cdot 10 \approx \SI{17.32}{\ampere}\), with a phase angle of approximately \(30^\circ\) leading.
     \item \textbf{Why It Matters}: Understanding the relationship between line and phase currents in a delta system is crucial for designing and analyzing three-phase power systems, ensuring proper load balancing and efficient power distribution.
+\end{itemize}
+
+\section{Additional Notes}
+\subsection{Lamps}
+\concept{Lamps} are common electrical loads with distinct electrical characteristics depending on their type.
+\begin{itemize}
+    \item \textbf{Incandescent Lamps (Classical Filament)}:
+        \begin{itemize}
+            \item \textbf{Characteristics}: Purely resistive because the filament heats up and glows to produce light.
+            \item \textbf{Modeling}: In circuit analysis exercises, incandescent lamps are modeled as a resistor, resulting in a power factor of \(\cos \phi = 1\), indicating no reactive power.
+            \item \textbf{Why It Matters}: The purely resistive nature simplifies circuit calculations, as there is no phase difference between voltage and current.
+        \end{itemize}
+    \item \textbf{Fluorescent Lamps or Discharge Lamps}:
+        \begin{itemize}
+            \item \textbf{Characteristics}: Require a ballast (typically an inductor) to limit current flow due to their negative resistance behavior.
+            \item \textbf{Modeling}: In circuit analysis exercises, these lamps are modeled as inductive loads, resulting in a power factor of \(\cos \phi < 1\), typically in the range of 0.6 to 0.8, indicating reactive power consumption.
+            \item \textbf{Why It Matters}: The inductive nature requires consideration of reactive power and power factor correction in circuit design to improve efficiency.
+        \end{itemize}
 \end{itemize}
 
 \end{document}
